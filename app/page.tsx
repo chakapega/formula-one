@@ -1,4 +1,4 @@
-import { CurrentDriverStandings } from "@/components/DriverStandings";
+import { CurrentDriverStandings } from '@/components/DriverStandings';
 
 async function getCurrentDriverStandings() {
   const response = await fetch('http://ergast.com/api/f1/current/driverStandings.json', {
@@ -16,5 +16,5 @@ export default async function Home() {
     <>
       <CurrentDriverStandings currentDriverStandings={currentDriverStandings} />
     </>
-  )
+  );
 }

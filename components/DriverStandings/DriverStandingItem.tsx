@@ -1,13 +1,18 @@
 import React from 'react';
 import nationalities from 'i18n-nationality';
-import ReactCountryFlag from "react-country-flag"
+import ReactCountryFlag from 'react-country-flag';
 
 type Props = {
   driverStandingData: any;
-}
+};
 
 export const DriverStandingItem = ({ driverStandingData }: Props) => {
-  const { position, points, wins, Driver: { givenName, familyName, nationality, permanentNumber } } = driverStandingData;
+  const {
+    position,
+    points,
+    wins,
+    Driver: { givenName, familyName, nationality, permanentNumber },
+  } = driverStandingData;
   const countryCode = nationalities.getAlpha2Code(nationality, 'en');
 
   return (
@@ -21,5 +26,5 @@ export const DriverStandingItem = ({ driverStandingData }: Props) => {
         <ReactCountryFlag countryCode={countryCode} style={{ width: 24, height: 24 }} svg />
       </div>
     </div>
-  )
-}
+  );
+};
