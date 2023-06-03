@@ -13,9 +13,8 @@ export default async function Home() {
   const currentDriverStandings = await getCurrentDriverStandings();
 
   return (
-    <main>
-      <span>Formula One</span>
+    <>
       <CurrentDriverStandings currentDriverStandings={currentDriverStandings} />
-    </main>
+    </>
   )
 }
