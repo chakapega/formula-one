@@ -2,13 +2,10 @@
 
 import { Table } from 'flowbite-react';
 
-import { DriverStandingItem } from './DriverStandingItem';
+import { CurrentDriverStandingItem } from './CurrentDriverStandingItem';
+import { CurrentDriverStanding, CurrentDriverStandingsProps } from './types';
 
-type Props = {
-  currentDriverStandings: any;
-};
-
-export function CurrentDriverStandings({ currentDriverStandings }: Props) {
+export function CurrentDriverStandings({ currentDriverStandings }: CurrentDriverStandingsProps) {
   return (
     <div className='p-3 w-[540px] inline-flex flex-col items-center'>
       <span className='text-slate-700'>Driver standings</span>
@@ -22,8 +19,8 @@ export function CurrentDriverStandings({ currentDriverStandings }: Props) {
           <Table.HeadCell className='driver-standings-table-padding'>Nationality</Table.HeadCell>
         </Table.Head>
         <Table.Body className='divide-y'>
-          {currentDriverStandings.DriverStandings.map((driverStandingData: any) => (
-            <DriverStandingItem driverStandingData={driverStandingData} key={driverStandingData.position} />
+          {currentDriverStandings.DriverStandings.map((driverStanding: CurrentDriverStanding) => (
+            <CurrentDriverStandingItem driverStanding={driverStanding} key={driverStanding.position} />
           ))}
         </Table.Body>
       </Table>
