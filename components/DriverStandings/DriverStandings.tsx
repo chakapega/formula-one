@@ -1,3 +1,7 @@
+'use client';
+
+import { Table } from 'flowbite-react';
+
 import { DriverStandingItem } from './DriverStandingItem';
 
 type Props = {
@@ -6,18 +10,23 @@ type Props = {
 
 export function CurrentDriverStandings({ currentDriverStandings }: Props) {
   return (
-    <div className='inline-block'>
-      <div className='flex-row bg-slate-200'>
-        <span className='inline-flex justify-center w-16'>Position</span>
-        <span className='inline-flex justify-center w-14 ml-3'>Points</span>
-        <span className='inline-flex justify-center w-10 ml-3'>Wins</span>
-        <span className='inline-flex justify-center w-40 ml-3'>Driver</span>
-        <span className='inline-flex justify-center w-16 ml-3'>Number</span>
-        <span className='inline-flex justify-center w-20 ml-3'>Nationality</span>
-      </div>
-      {currentDriverStandings.DriverStandings.map((driverStandingData: any) => (
-        <DriverStandingItem driverStandingData={driverStandingData} key={driverStandingData.position} />
-      ))}
+    <div className='p-3 w-[540px] inline-flex flex-col items-center'>
+      <span className='text-slate-700'>Driver standings</span>
+      <Table>
+        <Table.Head className='text-xs normal-case'>
+          <Table.HeadCell className='driver-standings-table-padding'>Position</Table.HeadCell>
+          <Table.HeadCell className='driver-standings-table-padding'>Points</Table.HeadCell>
+          <Table.HeadCell className='driver-standings-table-padding'>Wins</Table.HeadCell>
+          <Table.HeadCell className='driver-standings-table-padding'>Driver</Table.HeadCell>
+          <Table.HeadCell className='driver-standings-table-padding'>Number</Table.HeadCell>
+          <Table.HeadCell className='driver-standings-table-padding'>Nationality</Table.HeadCell>
+        </Table.Head>
+        <Table.Body className='divide-y'>
+          {currentDriverStandings.DriverStandings.map((driverStandingData: any) => (
+            <DriverStandingItem driverStandingData={driverStandingData} key={driverStandingData.position} />
+          ))}
+        </Table.Body>
+      </Table>
     </div>
   );
 }
